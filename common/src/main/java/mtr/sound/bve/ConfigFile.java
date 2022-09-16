@@ -35,6 +35,7 @@ public class ConfigFile {
 	public final float regenerationLimit;
 
 	public final float motorOutputAtCoast;
+	public final float motorVolumeMultiply;
 
 	public final int mrPressMin = 700; // kPa
 	public final int mrPressMax = 800; // kPa
@@ -66,6 +67,7 @@ public class ConfigFile {
 		SoundEvent shoe = null;
 
 		int motorNoiseDataType = 5; // 4 or 5
+		float motorVolumeMultiply = 2;
 		float breakerDelay = 0.5F;
 		float regenerationLimit = 8F / 3.6F; // m/s
 		float motorOutputAtCoast = 0.4F;
@@ -95,6 +97,9 @@ public class ConfigFile {
 						switch (key) {
 							case "motornoisedatatype":
 								motorNoiseDataType = Integer.parseInt(value);
+								break;
+							case "motorvolumemultiply":
+								motorVolumeMultiply = Float.parseFloat(value);
 								break;
 							case "doorclosesoundlength":
 								doorCloseSoundLength = Float.parseFloat(value);
@@ -228,5 +233,6 @@ public class ConfigFile {
 		this.regenerationLimit = regenerationLimit;
 		this.motorOutputAtCoast = motorOutputAtCoast;
 		this.doorCloseSoundLength = doorCloseSoundLength;
+		this.motorVolumeMultiply = motorVolumeMultiply;
 	}
 }

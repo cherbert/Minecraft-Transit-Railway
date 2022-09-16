@@ -66,6 +66,7 @@ public class BveTrainSound extends TrainSoundBase {
 			for (int i = 0; i < Math.min(config.soundCfg.motor.length, config.motorData.getSoundCount()); ++i) {
 				if (config.soundCfg.motor[i] != null) {
 					soundLoopMotor[i] = new TrainLoopingSoundInstance(config.soundCfg.motor[i], train);
+
 				}
 			}
 		}
@@ -147,7 +148,7 @@ public class BveTrainSound extends TrainSoundBase {
 			if (soundLoopMotor[i] == null) {
 				continue;
 			}
-			soundLoopMotor[i].setData(config.motorData.getVolume(i, speedKph, motorCurrentOutput), config.motorData.getPitch(i, speedKph, motorCurrentOutput), pos);
+			soundLoopMotor[i].setData(config.motorData.getVolume(i, speedKph, motorCurrentOutput) * config.soundCfg.motorVolumeMultiply, config.motorData.getPitch(i, speedKph, motorCurrentOutput), pos);
 		}
 
 		// TODO Play flange sounds
